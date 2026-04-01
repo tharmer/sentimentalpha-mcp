@@ -1,1 +1,425 @@
-{"name":"get_x_narrative_alpha","version":"1.0.0","description":"Real-time X/Twitter sentiment intelligence via Grok API + x_search. Master Chris Camillo's Social Arbitrage: spot cultural trend shifts, narrative velocity, and contrarian signals BEFORE Wall Street for trading alpha. Returns structured JSON: sentiment score (-1.0 to +1.0), narrative velocity (0-100), top trending narratives with strength scores, key influencer positions, and contrarian signals. Use cases: social arbitrage trading, brand monitoring, competitive intelligence, crisis/PR alerts, product feedback, trend detection, social listening, information asymmetry trading. Covers: crypto ($BTC $ETH $SOL DeFi meme coins), stocks ($TSLA $NVDA earnings), macro events (Fed CPI inflation), brands (Nike Adidas Apple Samsung), tech, politics, culture — anything on X. Perfect for social arbitrage bots, Camillo-style AI agents, and TickerTrends-style automation. Live Grok x_search — real-time, not historical or scraped. Pay-per-query via x402 micropayments on Base USDC (0.005 USDC/query). MCP-native discovery. Sub-second cached responses (<400ms), 2-5s fresh. Free preview endpoint for evaluation. Example queries: {\"query\": \"$TSLA cultural sentiment shift\"}, {\"query\": \"$BTC\"}, {\"query\": \"Nike sustainability backlash\"}, {\"query\": \"AI ethics debate\"}.","provider":{"name":"SentimentAlpha.ai","url":"https://sentimentalpha.ai"},"protocol":"x402","pricing":{"model":"per-query","currency":"USDC","network":"base","amount":0.005},"capabilities":["social-arbitrage-automation","camillo-style-social-arbitrage","pre-wall-street-trend-detection","real-time-x-sentiment","narrative-velocity-tracking","kol-influencer-monitoring","contrarian-reversal-signals","trading-alpha-generation","information-asymmetry-detection","cultural-trend-shift-detection","crypto-sentiment","stock-sentiment","macro-event-analysis","alternative-data-sentiment","x402-pay-per-query","mcp-native-discovery","virtuals-acp-compatible"],"tools":[{"name":"get_x_narrative_alpha","description":"Real-time X/Twitter sentiment intelligence via Grok API + x_search. Master Chris Camillo's Social Arbitrage: spot cultural trend shifts, narrative velocity, and contrarian signals BEFORE Wall Street for trading alpha. Returns structured JSON: sentiment score (-1.0 to +1.0), narrative velocity (0-100), top trending narratives with strength scores, key influencer positions, and contrarian signals. Use cases: social arbitrage trading, brand monitoring, competitive intelligence, crisis/PR alerts, product feedback, trend detection, social listening, information asymmetry trading. Covers: crypto ($BTC $ETH $SOL DeFi meme coins), stocks ($TSLA $NVDA earnings), macro events (Fed CPI inflation), brands (Nike Adidas Apple Samsung), tech, politics, culture — anything on X. Perfect for social arbitrage bots, Camillo-style AI agents, and TickerTrends-style automation. Live Grok x_search — real-time, not historical or scraped. Pay-per-query via x402 micropayments on Base USDC (0.005 USDC/query). MCP-native discovery. Sub-second cached responses (<400ms), 2-5s fresh. Free preview endpoint for evaluation. Example queries: {\"query\": \"$TSLA cultural sentiment shift\"}, {\"query\": \"$BTC\"}, {\"query\": \"Nike sustainability backlash\"}, {\"query\": \"AI ethics debate\"}.","inputSchema":{"type":"object","properties":{"ticker":{"type":"string","description":"Primary ticker or asset symbol. Examples: \"$BTC\", \"$ETH\", \"$TSLA\", \"$NVDA\", \"$SOL\""},"event":{"type":"string","description":"Market event or topic. Examples: \"Fed rate decision\", \"ETH ETF approval\", \"Bitcoin halving\", \"NVDA earnings\""},"query":{"type":"string","description":"Free-form query combining ticker + event + context. Use this if ticker/event split doesn't fit. Examples: \"$BTC after Fed pause\", \"AI agent economy growth\""},"time_window":{"type":"string","enum":["1h","4h","24h","7d"],"description":"Analysis time window. Default: 4h. Use 1h for breaking news, 24h for daily sentiment, 7d for trend analysis.","default":"4h"},"confidence_threshold":{"type":"number","minimum":0,"maximum":1,"description":"Minimum confidence score to include in results. Default: 0.5. Set higher (0.8+) for high-conviction signals only.","default":0.5}},"anyOf":[{"required":["query"]},{"required":["ticker"]},{"required":["event"]}]},"outputSchema":{"type":"object","properties":{"narrative_score":{"type":"number","description":"Overall sentiment score from -1 (bearish) to +1 (bullish)"},"velocity":{"type":"object","description":"Narrative velocity: score (0-100), trend (accelerating/peaking/decelerating/dormant), hourly mentions"},"key_drivers":{"type":"array","description":"Top 3-5 narratives with theme, sentiment, strength (0-100), sample take"},"contrarian":{"type":"object","description":"Contrarian signal: hasSignal (bool), consensusDivergence (0-100, higher = more reversal risk), description"},"manipulationRisk":{"type":"object","description":"Bot/coordination detection: score (0-100), flags array (bot_amplification, coordinated_accounts, low_organic_ratio, astroturf_patterns)"},"relatedTickers":{"type":"array","description":"All tickers/assets mentioned in the narrative (e.g. $BTC, $ETH, $COIN)"},"confidence":{"type":"number","description":"Model confidence in the analysis (0-1)"},"sources_summary":{"type":"string","description":"Brief summary of data sources and volume analyzed"},"cache_ttl":{"type":"number","description":"Seconds until this result expires. Use for caching decisions."}}},"pricing":{"amount":0.005,"currency":"USDC","network":"base"}}],"metrics":{"uptime_seconds":2681,"avgLatency":"< 400ms cached, 2-5s fresh","cache_entries":0,"total_requests":64,"success_rate":"0.0%"},"endpoints":{"narrativeAlpha":"POST /v1/narrative-alpha","preview":"POST /v1/narrative-alpha/preview","evalFeedback":"POST /v1/eval-feedback","agentDetail":"GET /v1/agent-detail","usage":"GET /v1/usage","health":"GET /v1/health","manifest":"GET /v1/mcp-manifest","wellKnown":"GET /.well-known/agent.json"},"tags":["social-arbitrage","social-arb","social-arbitrage-api","social-arbitrage-bot","social-arbitrage-trading","real-time-social-arbitrage","twitter-social-arbitrage","chris-camillo","camillo-social-arbitrage","camillo-style-agent","dumb-money-trading","dumb-money-trading-api","observational-investing","narrative-velocity","narrative-velocity-api","narrative-velocity-trading-api","contrarian-signals","contrarian-sentiment-signals","pre-wall-street-trend-detection","pre-wall-street-sentiment-api","information-asymmetry-trading","cultural-trend-shifts","early-cultural-trend-detection","retail-sentiment-before-wall-street","tickertrends","tickertrends-alternative","social-arbitrage-score","quiverquant-alternative","likefolio-alternative","isentium-alternative","marketpsych-alternative","ravenpack-alternative","dataminr-alternative","alternative-data","alternative-data-sentiment-api","alt-data-api","sentiment-analysis","twitter-sentiment","x-sentiment-for-trading-agents","social-sentiment-alpha","grok-x-search-sentiment","brand-monitoring","competitive-intelligence","crisis-detection","social-listening","trend-detection","trading-alpha","real-time","grok-x-search","narrative-intelligence","crypto","stocks","macro","x402-micropayments","mcp-native","base-usdc","ai-agent-tool","retail-sentiment","universal-sentiment"]}
+{
+    "name": "sentimentalpha-oracle-suite",
+    "version": "2.0.0",
+    "description": "Multi-tool MCP server: social arbitrage suite for autonomous agents. Three Grok-powered oracles with live X search. (1) Narrative Alpha \u2014 real-time X/Twitter sentiment, narrative velocity, KOL tracking, contrarian reversal signals. (2) Manipulation Risk \u2014 agent safety oracle, pre-trade manipulation check, bot coordination detection + astroturf flags. (3) Convergence Alpha \u2014 narrative + on-chain + meme convergence scoring, prediction market delta. Social arbitrage automation: spot cultural trend shifts BEFORE Wall Street. Returns structured JSON: sentiment score (-1.0 to +1.0), manipulation score (0-100), convergence score (0-100), narrative velocity, KOL networks, bot detection flags, on-chain wallet flows, meme virality, prediction market delta. Covers: crypto ($BTC $ETH $SOL DeFi meme coins), stocks ($TSLA $NVDA earnings), macro events (Fed CPI inflation), brands, tech, politics, culture \u2014 anything on X. Pay-per-query via x402 micropayments on Base USDC ($0.005/query). MCP-native discovery. Sub-second cached responses (<400ms). Free preview endpoints for evaluation.",
+    "provider": {
+        "name": "SentimentAlpha.ai",
+        "url": "https://sentimentalpha.ai"
+    },
+    "protocol": "x402",
+    "pricing": {
+        "model": "per-query",
+        "currency": "USDC",
+        "network": "base",
+        "amount": 0.005
+    },
+    "capabilities": [
+        "social-arbitrage-automation",
+        "camillo-style-social-arbitrage",
+        "pre-wall-street-trend-detection",
+        "real-time-x-sentiment",
+        "narrative-velocity-tracking",
+        "kol-influencer-monitoring",
+        "contrarian-reversal-signals",
+        "trading-alpha-generation",
+        "information-asymmetry-detection",
+        "cultural-trend-shift-detection",
+        "crypto-sentiment",
+        "stock-sentiment",
+        "macro-event-analysis",
+        "alternative-data-sentiment",
+        "x402-pay-per-query",
+        "mcp-native-discovery",
+        "virtuals-acp-compatible"
+    ],
+    "tools": [
+        {
+            "name": "get_x_narrative_alpha",
+            "description": "Multi-tool MCP server: social arbitrage suite for autonomous agents. Three Grok-powered oracles with live X search. (1) Narrative Alpha \u2014 real-time X/Twitter sentiment, narrative velocity, KOL tracking, contrarian reversal signals. (2) Manipulation Risk \u2014 agent safety oracle, pre-trade manipulation check, bot coordination detection + astroturf flags. (3) Convergence Alpha \u2014 narrative + on-chain + meme convergence scoring, prediction market delta. Social arbitrage automation: spot cultural trend shifts BEFORE Wall Street. Returns structured JSON: sentiment score (-1.0 to +1.0), manipulation score (0-100), convergence score (0-100), narrative velocity, KOL networks, bot detection flags, on-chain wallet flows, meme virality, prediction market delta. Covers: crypto ($BTC $ETH $SOL DeFi meme coins), stocks ($TSLA $NVDA earnings), macro events (Fed CPI inflation), brands, tech, politics, culture \u2014 anything on X. Pay-per-query via x402 micropayments on Base USDC ($0.005/query). MCP-native discovery. Sub-second cached responses (<400ms). Free preview endpoints for evaluation.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ticker": {
+                        "type": "string",
+                        "description": "Primary ticker or asset symbol. Examples: \"$BTC\", \"$ETH\", \"$TSLA\", \"$NVDA\", \"$SOL\""
+                    },
+                    "event": {
+                        "type": "string",
+                        "description": "Market event or topic. Examples: \"Fed rate decision\", \"ETH ETF approval\", \"Bitcoin halving\", \"NVDA earnings\""
+                    },
+                    "query": {
+                        "type": "string",
+                        "description": "Free-form query combining ticker + event + context. Use this if ticker/event split doesn't fit. Examples: \"$BTC after Fed pause\", \"AI agent economy growth\""
+                    },
+                    "time_window": {
+                        "type": "string",
+                        "enum": [
+                            "1h",
+                            "4h",
+                            "24h",
+                            "7d"
+                        ],
+                        "description": "Analysis time window. Default: 4h. Use 1h for breaking news, 24h for daily sentiment, 7d for trend analysis.",
+                        "default": "4h"
+                    },
+                    "confidence_threshold": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 1,
+                        "description": "Minimum confidence score to include in results. Default: 0.5. Set higher (0.8+) for high-conviction signals only.",
+                        "default": 0.5
+                    }
+                },
+                "anyOf": [
+                    {
+                        "required": [
+                            "query"
+                        ]
+                    },
+                    {
+                        "required": [
+                            "ticker"
+                        ]
+                    },
+                    {
+                        "required": [
+                            "event"
+                        ]
+                    }
+                ]
+            },
+            "outputSchema": {
+                "type": "object",
+                "properties": {
+                    "narrative_score": {
+                        "type": "number",
+                        "description": "Overall sentiment score from -1 (bearish) to +1 (bullish)"
+                    },
+                    "velocity": {
+                        "type": "object",
+                        "description": "Narrative velocity: score (0-100), trend (accelerating/peaking/decelerating/dormant), hourly mentions"
+                    },
+                    "key_drivers": {
+                        "type": "array",
+                        "description": "Top 3-5 narratives with theme, sentiment, strength (0-100), sample take"
+                    },
+                    "contrarian": {
+                        "type": "object",
+                        "description": "Contrarian signal: hasSignal (bool), consensusDivergence (0-100, higher = more reversal risk), description"
+                    },
+                    "manipulationRisk": {
+                        "type": "object",
+                        "description": "Bot/coordination detection: score (0-100), flags array (bot_amplification, coordinated_accounts, low_organic_ratio, astroturf_patterns)"
+                    },
+                    "relatedTickers": {
+                        "type": "array",
+                        "description": "All tickers/assets mentioned in the narrative (e.g. $BTC, $ETH, $COIN)"
+                    },
+                    "confidence": {
+                        "type": "number",
+                        "description": "Model confidence in the analysis (0-1)"
+                    },
+                    "sources_summary": {
+                        "type": "string",
+                        "description": "Brief summary of data sources and volume analyzed"
+                    },
+                    "cache_ttl": {
+                        "type": "number",
+                        "description": "Seconds until this result expires. Use for caching decisions."
+                    }
+                }
+            },
+            "pricing": {
+                "amount": 0.005,
+                "currency": "USDC",
+                "network": "base"
+            }
+        },
+        {
+            "name": "analyze_manipulation_risk",
+            "description": "Standalone manipulation & coordination risk oracle for X/Twitter narratives. Returns manipulationScore (0-100), riskLevel, flags, and deep evidence of bot farms, coordinated KOL rings, astroturfing, copy-paste brigades, wallet-linked spam, and narrative fingerprinting. The #1 pre-trade safety check for AI agents \u2014 call this before any high-stakes action (trade, bet, content decision). Powered by Grok with live X search. Detects: bot amplification, coordinated accounts, timing attacks, hashtag hijacking, paid influencer networks, wash trading correlations, and narrative repetition patterns.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "Ticker, asset, event, or topic to analyze for manipulation. Examples: \"$BTC\", \"PEPE meme coin\", \"Trump tariffs\", \"$SOL airdrop\""
+                    },
+                    "ticker": {
+                        "type": "string",
+                        "description": "Primary ticker symbol. Examples: \"$BTC\", \"$ETH\", \"$TSLA\""
+                    },
+                    "event": {
+                        "type": "string",
+                        "description": "Market event or topic. Examples: \"Fed rate decision\", \"token launch\""
+                    },
+                    "time_window": {
+                        "type": "string",
+                        "enum": [
+                            "1h",
+                            "4h",
+                            "12h",
+                            "24h",
+                            "7d"
+                        ],
+                        "description": "Analysis time window. Default: 4h.",
+                        "default": "4h"
+                    }
+                },
+                "anyOf": [
+                    {
+                        "required": [
+                            "query"
+                        ]
+                    },
+                    {
+                        "required": [
+                            "ticker"
+                        ]
+                    },
+                    {
+                        "required": [
+                            "event"
+                        ]
+                    }
+                ]
+            },
+            "outputSchema": {
+                "type": "object",
+                "properties": {
+                    "manipulationScore": {
+                        "type": "number",
+                        "description": "Overall manipulation risk score 0-100 (0 = organic, 100 = highly suspicious)"
+                    },
+                    "riskLevel": {
+                        "type": "string",
+                        "description": "Risk level: low, moderate, high, or critical"
+                    },
+                    "flags": {
+                        "type": "array",
+                        "description": "Detected manipulation flags: bot_amplification, coordinated_accounts, low_organic_ratio, astroturf_patterns, kols_pumping, wallet_linked_spam, timing_coordinated, hashtag_hijack"
+                    },
+                    "evidence": {
+                        "type": "object",
+                        "description": "Quantitative evidence: botAccountsDetected, coordinatedClusters, organicRatio, topAmplifiers, walletLinkedPosts"
+                    },
+                    "narrativeVelocityComparison": {
+                        "type": "object",
+                        "description": "Volume comparison: currentVelocity, baselineVelocity, spikeFactor"
+                    },
+                    "recommendation": {
+                        "type": "string",
+                        "description": "Actionable recommendation for the trading agent"
+                    }
+                }
+            },
+            "pricing": {
+                "amount": 0.005,
+                "currency": "USDC",
+                "network": "base"
+            }
+        },
+        {
+            "name": "analyze_convergence",
+            "description": "Multi-modal narrative + on-chain convergence oracle. Returns a convergenceScore (0-100) showing how strongly X narrative velocity is aligning with on-chain wallet activity, meme/image virality, and prediction-market pricing. Use this for high-conviction trade signals \u2014 extreme convergence (all signals aligned) is rare and highly actionable. Powered by Grok with live X search + on-chain analytics. Combines: narrative velocity, smart money inflows, whale transactions, viral meme strength, Polymarket/Kalshi delta.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "Ticker, asset, event, or topic. Examples: \"$BTC\", \"PEPE meme coin\", \"Trump tariffs\", \"$SOL airdrop\""
+                    },
+                    "ticker": {
+                        "type": "string",
+                        "description": "Primary ticker symbol. Examples: \"$BTC\", \"$ETH\""
+                    },
+                    "event": {
+                        "type": "string",
+                        "description": "Market event or topic."
+                    },
+                    "time_window": {
+                        "type": "string",
+                        "enum": [
+                            "4h",
+                            "12h",
+                            "24h",
+                            "7d"
+                        ],
+                        "description": "Analysis time window. Default: 4h.",
+                        "default": "4h"
+                    },
+                    "confidence_threshold": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 1,
+                        "description": "Minimum convergence threshold (mapped to 0-100 score). Default: 0.5.",
+                        "default": 0.5
+                    }
+                },
+                "anyOf": [
+                    {
+                        "required": [
+                            "query"
+                        ]
+                    },
+                    {
+                        "required": [
+                            "ticker"
+                        ]
+                    },
+                    {
+                        "required": [
+                            "event"
+                        ]
+                    }
+                ]
+            },
+            "outputSchema": {
+                "type": "object",
+                "properties": {
+                    "convergenceScore": {
+                        "type": "number",
+                        "description": "Overall convergence score 0-100 (0 = no alignment, 100 = perfect multi-modal convergence)"
+                    },
+                    "strength": {
+                        "type": "string",
+                        "description": "Convergence strength: weak, medium, strong, extreme"
+                    },
+                    "narrativeVelocity": {
+                        "type": "number",
+                        "description": "X narrative velocity score 0-100"
+                    },
+                    "onChainActivity": {
+                        "type": "object",
+                        "description": "On-chain data: walletClusterVolume, smartMoneyInflow, whaleTransactions"
+                    },
+                    "visualMemeStrength": {
+                        "type": "number",
+                        "description": "Viral image/video meme strength 0-100"
+                    },
+                    "predictionMarketDelta": {
+                        "type": "number",
+                        "description": "Divergence from prediction market odds (-100 to 100). Positive = narrative more bullish than market."
+                    },
+                    "evidence": {
+                        "type": "object",
+                        "description": "Evidence: topViralImages, keyKOLWallets, convergenceDrivers"
+                    },
+                    "recommendation": {
+                        "type": "string",
+                        "description": "Actionable trade signal based on convergence analysis"
+                    }
+                }
+            },
+            "pricing": {
+                "amount": 0.005,
+                "currency": "USDC",
+                "network": "base"
+            }
+        }
+    ],
+    "metrics": {
+        "uptime_seconds": 59,
+        "avgLatency": "< 400ms cached, 2-5s fresh",
+        "cache_entries": 0,
+        "total_requests": 11,
+        "success_rate": "0.0%"
+    },
+    "endpoints": {
+        "narrativeAlpha": "POST /v1/narrative-alpha",
+        "narrativePreview": "POST /v1/narrative-alpha/preview",
+        "manipulationAlpha": "POST /v1/manipulation-alpha",
+        "manipulationPreview": "POST /v1/manipulation-alpha/preview",
+        "convergenceAlpha": "POST /v1/convergence-alpha",
+        "convergencePreview": "POST /v1/convergence-alpha/preview",
+        "evalFeedback": "POST /v1/eval-feedback",
+        "agentDetail": "GET /v1/agent-detail",
+        "usage": "GET /v1/usage",
+        "health": "GET /v1/health",
+        "manifest": "GET /v1/mcp-manifest",
+        "wellKnown": "GET /.well-known/agent.json"
+    },
+    "tags": [
+        "social-arbitrage",
+        "social-arb",
+        "social-arbitrage-api",
+        "social-arbitrage-bot",
+        "social-arbitrage-trading",
+        "real-time-social-arbitrage",
+        "twitter-social-arbitrage",
+        "chris-camillo",
+        "camillo-social-arbitrage",
+        "camillo-style-agent",
+        "dumb-money-trading",
+        "dumb-money-trading-api",
+        "observational-investing",
+        "narrative-velocity",
+        "narrative-velocity-api",
+        "narrative-velocity-trading-api",
+        "contrarian-signals",
+        "contrarian-sentiment-signals",
+        "pre-wall-street-trend-detection",
+        "pre-wall-street-sentiment-api",
+        "information-asymmetry-trading",
+        "cultural-trend-shifts",
+        "early-cultural-trend-detection",
+        "retail-sentiment-before-wall-street",
+        "tickertrends",
+        "tickertrends-alternative",
+        "social-arbitrage-score",
+        "quiverquant-alternative",
+        "likefolio-alternative",
+        "isentium-alternative",
+        "marketpsych-alternative",
+        "ravenpack-alternative",
+        "dataminr-alternative",
+        "alternative-data",
+        "alternative-data-sentiment-api",
+        "alt-data-api",
+        "sentiment-analysis",
+        "twitter-sentiment",
+        "x-sentiment-for-trading-agents",
+        "social-sentiment-alpha",
+        "grok-x-search-sentiment",
+        "brand-monitoring",
+        "competitive-intelligence",
+        "crisis-detection",
+        "social-listening",
+        "trend-detection",
+        "trading-alpha",
+        "real-time",
+        "grok-x-search",
+        "narrative-intelligence",
+        "crypto",
+        "stocks",
+        "macro",
+        "manipulation-detection",
+        "manipulation-risk",
+        "bot-detection",
+        "coordinated-attack-detection",
+        "narrative-forensics",
+        "astroturf-detection",
+        "kol-network-analysis",
+        "wash-trading-detection",
+        "shill-detection",
+        "pump-and-dump-detection",
+        "social-manipulation-oracle",
+        "pre-trade-safety",
+        "agent-trust-verification",
+        "multi-modal-convergence",
+        "narrative-onchain-convergence",
+        "convergence-oracle",
+        "smart-money-tracking",
+        "whale-tracking",
+        "prediction-market-delta",
+        "meme-virality",
+        "on-chain-sentiment",
+        "high-conviction-signals",
+        "x402-micropayments",
+        "mcp-native",
+        "base-usdc",
+        "ai-agent-tool",
+        "retail-sentiment",
+        "universal-sentiment"
+    ]
+}
