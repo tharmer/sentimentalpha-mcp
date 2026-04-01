@@ -85,7 +85,7 @@ Add to `claude_desktop_config.json`:
 
 ## Pricing
 
-$0.008 USDC per query via x402 micropayments on Base (5 paid tools). Spend Guard is free.
+$0.01 USDC per query via x402 micropayments on Base (5 paid tools). Spend Guard is free.
 
 ## Architecture
 
